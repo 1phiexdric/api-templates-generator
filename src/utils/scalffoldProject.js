@@ -89,6 +89,7 @@ function processDirectory(sourceDir, destinationDir, userFolders, globalData) {
                         resourceNamePlural: resource.plural,
                         resourceNameSingular: resource.singular,
                         resourceNamePascal: resource.pascal
+                        
                     };
                     
                     const finalFileName = item.replace('resource', resource.singular).replace('.ejs', '');

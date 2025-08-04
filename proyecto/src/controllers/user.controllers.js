@@ -1,12 +1,11 @@
-import <%= resourceNamePascal %> from '../models/<%= resourceNameSingular %>.model.js';
+import User from '../models/user.model.js';
 
-// <%= resourceNamePascal %>Controller maneja las operaciones CRUD para los recursos.
-class <%= resourceNamePascal %>Controller {
+class UserController {
 
     // getAll recupera todos los recursos.
     async getAll(req, res) {
         try {
-            const data = await <%= resourceNamePascal %>.find({});
+            const data = await User.find({});
             res.status(200).json(data);
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -16,7 +15,7 @@ class <%= resourceNamePascal %>Controller {
     // getById recupera un recurso por su ID.
     async getById(req, res) {
         try {
-            const data = await <%= resourceNamePascal %>.findById(req.params.id);
+            const data = await User.findById(req.params.id);
             if (data) {
                 res.status(200).json(data);
             } else {
@@ -30,7 +29,7 @@ class <%= resourceNamePascal %>Controller {
     // create crea un nuevo recurso.
     async create(req, res) {
         try {
-            const newData = new <%= resourceNamePascal %>(req.body);
+            const newData = new User(req.body);
             const savedData = await newData.save();
             res.status(201).json(savedData);
         } catch (error) {
@@ -41,7 +40,7 @@ class <%= resourceNamePascal %>Controller {
     // update actualiza un recurso existente por su ID.
     async update(req, res) {
         try {
-            const updatedData = await <%= resourceNamePascal %>.findByIdAndUpdate(req.params.id, req.body, { new: true });
+            const updatedData = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
             if (updatedData) {
                 res.status(200).json(updatedData);
             } else {
@@ -55,7 +54,7 @@ class <%= resourceNamePascal %>Controller {
     // delete elimina un recurso por su ID.
     async delete(req, res) {
         try {
-            const deletedData = await <%= resourceNamePascal %>.findByIdAndDelete(req.params.id);
+            const deletedData = await User.findByIdAndDelete(req.params.id);
             if (deletedData) {
                 res.status(200).json({ message: 'Recurso eliminado exitosamente' });
             } else {
@@ -68,4 +67,4 @@ class <%= resourceNamePascal %>Controller {
 }
 
 // Exporta una única instancia del controlador para mantener la consistencia.
-export default new <%= resourceNamePascal %>Controller();
+export default new UserController();

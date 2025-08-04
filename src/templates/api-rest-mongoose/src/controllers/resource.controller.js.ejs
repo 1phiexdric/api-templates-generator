@@ -3,7 +3,6 @@ import catchAsync from '../utils/catchAsync.js';
 
 // <%= resourceNamePascal %>Controller maneja las operaciones CRUD para los recursos.
 class <%= resourceNamePascal %>Controller {
-
     // getAll recupera todos los recursos.
     getAll = catchAsync(async (req, res) => {
         const data = await <%= resourceNamePascal %>.find({});

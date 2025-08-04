@@ -1,0 +1,28 @@
+import express from 'express';
+import userControllers from '../controllers/user.controller.js';
+import { verificarToken } from '../helpers/autenticacion.js';
+
+const router = express.Router();
+
+// Define las rutas para el recurso, aplicando el middleware de verificación de token a las rutas protegidas.
+
+// Ruta para crear un nuevo recurso.
+router.post('/', userControllers.create);
+
+// Ruta para obtener un recurso por su ID.
+router.get('/:id', userControllers.getOne);
+
+// Ruta para obtener todos los recursos.
+router.get('/', userControllers.getAll);
+
+// Ruta para actualizar parcialmente un recurso.
+router.patch('/:id', userControllers.update);
+
+// Ruta para reemplazar completamente un recurso (protegida).
+router.put('/:id', verificarToken, userControllers.replace);
+
+// Ruta para eliminar un recurso (protegida).
+router.delete('/:id', verificarToken, userControllers.delete);
+
+export default router;
+
