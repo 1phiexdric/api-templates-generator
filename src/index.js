@@ -5,7 +5,7 @@ import { scaffoldProject} from "./utils/scalffoldProject.js";
 import { installDependencies } from "./commands/installDependencies.js";
 console.clear
 function main() {
-    console.log('Template Generator API');
+    console.log('API-REST Template Generator');
     const prompt = inquirer.createPromptModule();
     prompt([
         {
@@ -16,41 +16,41 @@ function main() {
         }, {
             type: 'input',
             name: 'projectName',
-            message: 'Cual sera el nombre del proyecto',
+            message: '¿Cual sera el nombre del proyecto?',
             validate: (answer) => {
                 return answer.trim() ? true : false
             }
         }, {
             type: 'input',
             name: 'directory',
-            message: 'Cual sera la ruta del proyecto?',
+            message: '¿Cual sera la ruta del proyecto?',
             default: './',
         },
         {
             type: 'checkbox',
             name: 'folders',
-            message: 'Que carpetas quieres incluir?',
-            choices: ['All', 'controllers/', 'routes/', 'models/', 'helpers/', 'middlewares/',
+            message: '¿Qué carpetas quieres incluir?',
+            choices: ['Todas', 'controllers/', 'routes/', 'models/', 'helpers/', 'middlewares/',
                 'config/', 'services/', 'utils/'
             ],
             pageSize: 5,
-            default: 'All'
+            default: 'Todas'
         }, {
             type: 'checkbox',
             name: 'dependencies',
-            message: 'Que dependencias quieres incluir automaticamente',
+            message: '¿Que dependencias quieres incluir automaticamente?',
             choices: ['Express', 'Moongoose', 'dotenv', 'bcrypt', 'jsonwebtoken'],
             default: 'Express'
         }, {
             type: 'rawlist',
             name: 'gestorPaquetes',
-            message: 'Que gestor de paquetes quieres usar?',
+            message: '¿Que gestor de paquetes quieres usar?',
             choices: ['npm', 'pnpm'],
             default: 'npm'
         }, {
             type: 'input',
             name: 'resources',
-            message: 'Que recurso deseas menejar en tu API? (separados por coma)',
+            message: '¿Que recurso deseas menejar en tu API? (separados por coma)?',
             suffix: 'Ejemplo: usuarios, productos, ordenes',
             default: 'usuarios, productos, ordenes' // <-- Esto muestra el ejemplo en el input
         }

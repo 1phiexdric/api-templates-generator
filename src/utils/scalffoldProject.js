@@ -61,7 +61,7 @@ export function scaffoldProject(answers) {
 
 function processDirectory(sourceDir, destinationDir, userFolders, globalData) {
     const items = fs.readdirSync(sourceDir);
-    if(userFolders == 'All' || userFolders[0] == 'All'){
+    if(userFolders == 'Todas' || userFolders[0] == 'Todas'){
                 userFolders = ['controllers/', 'routes/', 'models/', 'helpers/', 'middlewares/',
                     'config/', 'services/', 'utils/'
                 ]
