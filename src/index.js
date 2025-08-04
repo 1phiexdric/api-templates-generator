@@ -39,7 +39,7 @@ function main() {
             type: 'checkbox',
             name: 'dependencies',
             message: '¿Que dependencias quieres incluir automaticamente?',
-            choices: ['Express', 'Moongoose', 'dotenv', 'bcrypt', 'jsonwebtoken'],
+            choices: ['Express', 'Mongoose', 'dotenv', 'bcrypt', 'jsonwebtoken'],
             default: 'Express'
         }, {
             type: 'rawlist',
