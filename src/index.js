@@ -3,7 +3,8 @@
 import inquirer from "inquirer";
 import { scaffoldProject} from "./utils/scalffoldProject.js";
 import { installDependencies } from "./commands/installDependencies.js";
-console.clear
+import rewritePackagejson from "./utils/rewritepackagejson.js";
+console.clear()
 function main() {
     console.log('API-REST Template Generator');
     const prompt = inquirer.createPromptModule();
@@ -39,7 +40,7 @@ function main() {
             type: 'checkbox',
             name: 'dependencies',
             message: '¿Que dependencias quieres incluir automaticamente?',
-            choices: ['Express', 'Mongoose', 'dotenv', 'bcrypt', 'jsonwebtoken'],
+            choices: ['Express', 'Mongoose', 'dotenv', 'bcrypt', 'jsonwebtoken', 'mongodb'],
             default: 'Express'
         }, {
             type: 'rawlist',
@@ -59,7 +60,7 @@ function main() {
         const projectPath = scaffoldProject(answer)
         // instalacion de dependencias
         installDependencies(projectPath, gestorPaquetes, dependencies)
-        
+        rewritePackagejson(projectPath)
     });
 }
 

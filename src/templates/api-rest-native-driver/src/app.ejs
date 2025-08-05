@@ -1,11 +1,11 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import dbClient from './config/dbclient.js';
 <% resources.forEach(resource => { %>
 import <%= resource.plural %>Routes from './routes/<%= resource.singular %>.routes.js';
 <% }); %>
 
-dotenv.config();
+
 
 const app = express();
 

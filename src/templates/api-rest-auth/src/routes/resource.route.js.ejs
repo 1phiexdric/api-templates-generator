@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/', <%= resourceNameSingular %>Controllers.create);
 
 // Ruta para obtener un recurso por su ID.
-router.get('/:id', <%= resourceNameSingular %>Controllers.getOne);
+//router.get('/:id', <%= resourceNameSingular %>Controllers.getOne);
 
 // Ruta para obtener todos los recursos.
 router.get('/', <%= resourceNameSingular %>Controllers.getAll);
@@ -19,7 +19,7 @@ router.get('/', <%= resourceNameSingular %>Controllers.getAll);
 router.patch('/:id', <%= resourceNameSingular %>Controllers.update);
 
 // Ruta para reemplazar completamente un recurso (protegida).
-router.put('/:id', verificarToken, <%= resourceNameSingular %>Controllers.replace);
+//router.put('/:id', verificarToken, <%= resourceNameSingular %>Controllers.replace);
 
 // Ruta para eliminar un recurso (protegida).
 router.delete('/:id', verificarToken, <%= resourceNameSingular %>Controllers.delete);
